@@ -22,20 +22,20 @@ module.exports = {
         });
       })
       .catch(error => console.log(error))
-
+     
   },
   recomended: (req, res) => {
     db.Movie.findAll({
       limit: 5,
       order: [["rating", "DESC"]],
     })
-      .then((movies) => {
+      .then(movies => {
         return res.render("recommendedMovies", {
           movies,
         });
       })
-      .catch((error) =>
-        console.log("Upss,hubo un error en la conexión", error)
+      .catch(error =>
+        console.log("Upss,hubo un error en la conexión", (error))
       );
   },
   detail: (req, res) => {
